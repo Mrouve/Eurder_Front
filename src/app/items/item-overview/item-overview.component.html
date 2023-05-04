@@ -2,73 +2,109 @@
   <section>
     <h3 class="section-title">Items</h3>
 
+    <div class="form-group">
+      <label for="itemName">Item Name</label>
+      <input id="itemName"
+             name="itemName"
+             class="form-control"
+             placeholder="Name"
+             [(ngModel)]="itemNameToFind">
+    </div>
+
     <ul class="card-list">
-      <li class="card">
-        <div class="card-title">Name of Item</div>
+      <li class="card"
+      *ngFor="let itemO of itemsOverview | itemOverviewFilter: itemNameToFind">
+        <div class="card-title">{{itemO.name}}</div>
         <img class="card-image" src="../assets/imgs/item-image.png" alt="item image">
         <div class="card-footer">
-          <div>Price: &euro; XXX.YY</div>
+          <div>Price: &euro; {{itemO.price}}</div>
+
           <div class="stock">
             <span>High</span>
-            <img class="icon" src="../assets/imgs/warning-icon.png" alt="warning">
-          </div>
-        </div>
-      </li>
-      <li class="card">
-        <div class="card-title">Name of Item</div>
-        <img class="card-image" src="../assets/imgs/item-image.png" alt="item image">
-        <div class="card-footer">
-          <div>Price: &euro; XXX.YY</div>
-          <div class="stock">
-            <span>High</span>
-            <img class="icon" src="../assets/imgs/warning-icon.png" alt="warning">
-          </div>
-        </div>
-      </li>
-      <li class="card">
-        <div class="card-title">Name of Item</div>
-        <img class="card-image" src="../assets/imgs/item-image.png" alt="item image">
-        <div class="card-footer">
-          <div>Price: &euro; XXX.YY</div>
-          <div class="stock">
-            <span>High</span>
-            <img class="icon" src="../assets/imgs/warning-icon.png" alt="warning">
-          </div>
-        </div>
-      </li>
-      <li class="card">
-        <div class="card-title">Name of Item</div>
-        <img class="card-image" src="../assets/imgs/item-image.png" alt="item image">
-        <div class="card-footer">
-          <div>Price: &euro; XXX.YY</div>
-          <div class="stock">
-            <span>High</span>
-            <img class="icon" src="../assets/imgs/warning-icon.png" alt="warning">
-          </div>
-        </div>
-      </li>
-      <li class="card">
-        <div class="card-title">Name of Item</div>
-        <img class="card-image" src="../assets/imgs/item-image.png" alt="item image">
-        <div class="card-footer">
-          <div>Price: &euro; XXX.YY</div>
-          <div class="stock">
-            <span>High</span>
-            <img class="icon" src="../assets/imgs/warning-icon.png" alt="warning">
-          </div>
-        </div>
-      </li>
-      <li class="card">
-        <div class="card-title">Name of Item</div>
-        <img class="card-image" src="../assets/imgs/item-image.png" alt="item image">
-        <div class="card-footer">
-          <div>Price: &euro; XXX.YY</div>
-          <div class="stock">
-            <span>High</span>
-            <img class="icon" src="../assets/imgs/warning-icon.png" alt="warning">
+            <img *ngIf="itemO.stockUrgency==='STOCK_LOW'" class="icon" src="../assets/imgs/warning-icon-red.png" alt="warning">
+            <img *ngIf="itemO.stockUrgency==='STOCK_MEDIUM'" class="icon" src="../assets/imgs/warning-icon-orange.png" alt="warning">
+            <img *ngIf="itemO.stockUrgency==='STOCK_HIGH'" class="icon" src="../assets/imgs/warning-icon-green.png" alt="warning">
           </div>
         </div>
       </li>
     </ul>
+
   </section>
 </main>
+
+
+
+<!--<main>-->
+<!--  <section>-->
+<!--    <h3 class="section-title">Items</h3>-->
+
+<!--    <ul class="card-list">-->
+<!--      <li class="card">-->
+<!--        <div class="card-title">Name of Item</div>-->
+<!--        <img class="card-image" src="../assets/imgs/item-image.png" alt="item image">-->
+<!--        <div class="card-footer">-->
+<!--          <div>Price: &euro; XXX.YY</div>-->
+<!--          <div class="stock">-->
+<!--            <span>High</span>-->
+<!--            <img class="icon" src="../assets/imgs/warning-icon.png" alt="warning">-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </li>-->
+<!--      <li class="card">-->
+<!--        <div class="card-title">Name of Item</div>-->
+<!--        <img class="card-image" src="../assets/imgs/item-image.png" alt="item image">-->
+<!--        <div class="card-footer">-->
+<!--          <div>Price: &euro; XXX.YY</div>-->
+<!--          <div class="stock">-->
+<!--            <span>High</span>-->
+<!--            <img class="icon" src="../assets/imgs/warning-icon.png" alt="warning">-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </li>-->
+<!--      <li class="card">-->
+<!--        <div class="card-title">Name of Item</div>-->
+<!--        <img class="card-image" src="../assets/imgs/item-image.png" alt="item image">-->
+<!--        <div class="card-footer">-->
+<!--          <div>Price: &euro; XXX.YY</div>-->
+<!--          <div class="stock">-->
+<!--            <span>High</span>-->
+<!--            <img class="icon" src="../assets/imgs/warning-icon.png" alt="warning">-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </li>-->
+<!--      <li class="card">-->
+<!--        <div class="card-title">Name of Item</div>-->
+<!--        <img class="card-image" src="../assets/imgs/item-image.png" alt="item image">-->
+<!--        <div class="card-footer">-->
+<!--          <div>Price: &euro; XXX.YY</div>-->
+<!--          <div class="stock">-->
+<!--            <span>High</span>-->
+<!--            <img class="icon" src="../assets/imgs/warning-icon.png" alt="warning">-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </li>-->
+<!--      <li class="card">-->
+<!--        <div class="card-title">Name of Item</div>-->
+<!--        <img class="card-image" src="../assets/imgs/item-image.png" alt="item image">-->
+<!--        <div class="card-footer">-->
+<!--          <div>Price: &euro; XXX.YY</div>-->
+<!--          <div class="stock">-->
+<!--            <span>High</span>-->
+<!--            <img class="icon" src="../assets/imgs/warning-icon.png" alt="warning">-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </li>-->
+<!--      <li class="card">-->
+<!--        <div class="card-title">Name of Item</div>-->
+<!--        <img class="card-image" src="../assets/imgs/item-image.png" alt="item image">-->
+<!--        <div class="card-footer">-->
+<!--          <div>Price: &euro; XXX.YY</div>-->
+<!--          <div class="stock">-->
+<!--            <span>High</span>-->
+<!--            <img class="icon" src="../assets/imgs/warning-icon.png" alt="warning">-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </li>-->
+<!--    </ul>-->
+<!--  </section>-->
+<!--</main>-->
