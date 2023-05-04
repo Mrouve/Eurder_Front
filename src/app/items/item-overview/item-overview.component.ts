@@ -11,7 +11,10 @@ import {ItemOverview} from "../../../../models/ItemOverview";
 export class ItemOverviewComponent implements OnInit {
 
   itemsOverview: ItemOverview[] = [];
-  constructor(private itemService:ItemService){}
+  itemNameToFind: string;
+  constructor(private itemService:ItemService){
+    this.itemNameToFind = '';
+  }
 
   getItems(): void{
     this.itemService.getItems()

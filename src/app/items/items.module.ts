@@ -3,6 +3,9 @@ import { CommonModule } from '@angular/common';
 import { ItemOverviewComponent } from './item-overview/item-overview.component';
 import { ItemCreateComponent } from './item-create/item-create.component';
 import { ItemDetailComponent } from './item-detail/item-detail.component';
+import {FormsModule} from "@angular/forms";
+import {AppModule} from "../app.module";
+import {ItemOverviewFilterPipe} from "../pipes/item-overview-filter.pipe";
 
 
 
@@ -10,10 +13,13 @@ import { ItemDetailComponent } from './item-detail/item-detail.component';
   declarations: [
     ItemOverviewComponent,
     ItemCreateComponent,
-    ItemDetailComponent
+    ItemDetailComponent,
+    ItemOverviewFilterPipe,
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule,
+    AppModule,
   ]
 })
 export class ItemsModule { }

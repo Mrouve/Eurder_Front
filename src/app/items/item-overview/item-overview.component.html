@@ -2,9 +2,18 @@
   <section>
     <h3 class="section-title">Items</h3>
 
+    <div class="form-group">
+      <label for="itemName">Item Name</label>
+      <input id="itemName"
+             name="itemName"
+             class="form-control"
+             placeholder="Name"
+             [(ngModel)]="itemNameToFind">
+    </div>
+
     <ul class="card-list">
       <li class="card"
-      *ngFor="let itemO of itemsOverview">
+      *ngFor="let itemO of itemsOverview | itemOverviewFilter: itemNameToFind">
         <div class="card-title">{{itemO.name}}</div>
         <img class="card-image" src="../assets/imgs/item-image.png" alt="item image">
         <div class="card-footer">
