@@ -3,9 +3,10 @@ import { CommonModule } from '@angular/common';
 import { ItemOverviewComponent } from './item-overview/item-overview.component';
 import { ItemCreateComponent } from './item-create/item-create.component';
 import { ItemDetailComponent } from './item-detail/item-detail.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {AppModule} from "../app.module";
 import {ItemOverviewFilterPipe} from "../pipes/item-overview-filter.pipe";
+import {RouterModule} from "@angular/router";
 
 
 
@@ -16,10 +17,15 @@ import {ItemOverviewFilterPipe} from "../pipes/item-overview-filter.pipe";
     ItemDetailComponent,
     ItemOverviewFilterPipe,
   ],
+  // exports: [
+  //   ItemOverviewFilterPipe,
+  // ],
   imports: [
     CommonModule,
+    RouterModule,
     FormsModule,
-    AppModule,
+    // AppModule,
+    ReactiveFormsModule,
   ]
 })
 export class ItemsModule { }

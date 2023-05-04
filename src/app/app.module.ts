@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CustomersModule } from './customers/customers.module';
 import {HttpClientModule} from "@angular/common/http";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {ItemsModule} from "./items/items.module";
 
 @NgModule({
   declarations: [
@@ -12,9 +14,12 @@ import {HttpClientModule} from "@angular/common/http";
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     CustomersModule,
     HttpClientModule,
+    ItemsModule,
   ],
   providers: [],
   exports: [
