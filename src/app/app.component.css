@@ -129,6 +129,20 @@ form {
   padding-left: 0.75rem;
 }
 
+.form-textarea{
+  width: 100%;
+
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+
+  padding-top: 0.375rem;
+  padding-right: 0.75rem;
+  padding-bottom: 0.375rem;
+  padding-left: 0.75rem;
+
+}
+
 .btn:not(:disabled):not(.disabled) {
   cursor: pointer;
 }
