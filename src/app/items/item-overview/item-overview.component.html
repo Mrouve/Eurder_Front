@@ -23,12 +23,28 @@
         <div class="card-footer">
           <div>Price: &euro; {{itemO.price}}</div>
 
-          <div class="stock">
-            <span>High</span>
-            <img *ngIf="itemO.stockUrgency==='STOCK_LOW'" class="icon" src="../assets/imgs/warning-icon-red.png" alt="warning">
-            <img *ngIf="itemO.stockUrgency==='STOCK_MEDIUM'" class="icon" src="../assets/imgs/warning-icon-orange.png" alt="warning">
-            <img *ngIf="itemO.stockUrgency==='STOCK_HIGH'" class="icon" src="../assets/imgs/warning-icon-green.png" alt="warning">
+<!--          <div class="stock">-->
+<!--            <span>High</span>-->
+<!--            <img *ngIf="itemO.stockUrgency==='STOCK_LOW'" class="icon" src="../assets/imgs/warning-icon-red.png" alt="warning">-->
+<!--            <img *ngIf="itemO.stockUrgency==='STOCK_MEDIUM'" class="icon" src="../assets/imgs/warning-icon-orange.png" alt="warning">-->
+<!--            <img *ngIf="itemO.stockUrgency==='STOCK_HIGH'" class="icon" src="../assets/imgs/warning-icon-green.png" alt="warning">-->
+<!--          </div>-->
+
+          <div class="stock" *ngIf="itemO.stockUrgency==='STOCK_LOW'">
+            <span>Low</span>
+            <img class="icon" src="../assets/imgs/warning-icon-red.png" alt="warning">
           </div>
+
+          <div class="stock" *ngIf="itemO.stockUrgency==='STOCK_MEDIUM'">
+            <span>Medium</span>
+            <img class="icon" src="../assets/imgs/warning-icon-orange.png" alt="warning">
+          </div>
+
+          <div class="stock" *ngIf="itemO.stockUrgency==='STOCK_HIGH'">
+            <span>High</span>
+            <img class="icon" src="../assets/imgs/warning-icon-green.png" alt="warning">
+          </div>
+
         </div>
       </li>
     </ul>
