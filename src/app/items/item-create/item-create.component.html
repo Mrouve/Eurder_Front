@@ -7,17 +7,29 @@
           <label class="form-label" for="name">Name</label>
           <input class="form-control" id="name" type="text" formControlName="name"/>
         </div>
+      </div>
+
+      <div class="row">
         <div class="col-1">
           <label class="form-label" for="description">Description</label>
-          <input class="form-control" id="description" type="text" formControlName="description"/>
+          <textarea  class="form-textarea" rows = "10" cols="70" id = "description" formControlName="description"
+                     [maxlength]="maxlength"
+                     [value]="textAreaValue"
+          (keyup) = "onValueChange()">
+          </textarea>
+          <span *ngIf="characterCount!==0">{{counter}}</span>
+          <span *ngIf="characterCount===0" style="color:red">{{counter}}</span>
+
         </div>
       </div>
+
       <div class="row">
         <div class="col-1">
           <label class="form-label" for="price">Price</label>
           <input class="form-control" id="price" type="number" formControlName="price"/>
         </div>
       </div>
+
       <div class="row">
         <div class="col-1">
           <label class="form-label" for="stock">Amount in Stock</label>
