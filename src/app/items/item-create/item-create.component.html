@@ -1,1 +1,35 @@
-<p>item-create works!</p>
+<main>
+  <section>
+    <h3 class="section-title">Create Item</h3>
+    <form [formGroup] = "newItemForm" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <div class="col-1">
+          <label class="form-label" for="name">Name</label>
+          <input class="form-control" id="name" type="text" formControlName="name"/>
+        </div>
+        <div class="col-1">
+          <label class="form-label" for="description">Description</label>
+          <input class="form-control" id="description" type="text" formControlName="description"/>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-1">
+          <label class="form-label" for="price">Price</label>
+          <input class="form-control" id="price" type="number" formControlName="price"/>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-1">
+          <label class="form-label" for="stock">Amount in Stock</label>
+          <input class="form-control" id="stock" type="number" formControlName="amountOfStock"/>
+        </div>
+      </div>
+
+      <div class="row">
+        <button class="col-4 btn btn-create" type="submit">CREATE</button>
+        <button class="col-1 btn" routerLink="/item-overview">CANCEL</button>
+      </div>
+
+    </form>
+  </section>
+</main>
